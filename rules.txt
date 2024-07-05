@@ -1,0 +1,23 @@
+####################################################################################
+# Defined rules for the Pop-It model				 			      #
+# Author: Dragjon                                                               					      #                
+# License: MIT                                                                   					      #
+####################################################################################
+
+State:
+- Played on a 6x6 matrix
+- Each element on the matrix can only have 2 states, "popped" or "not-popped"
+
+Game Steps:
+- Player 1 chooses a row
+- Player one decides how many elements to pop on that row
+	NOTE
+	- Can only popped unpopped elements
+	- Can only pop elements on the chosen row
+- After popping the elements on the chosen row, switch to player 2
+- Repeat until there is one "not-popped" element left
+	NOTE
+	- This is known as "checkmate"
+	- Whoever made the last move wins
+	- There aren't any draws
+

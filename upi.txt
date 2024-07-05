@@ -1,0 +1,46 @@
+####################################################################################
+# A simple renditition of the uci inteterface for Pop-Its for this SPRT program			      #
+# Author: Dragjon                                                               					      #                
+# License: MIT                                                                   					      #
+####################################################################################
+
+NOTE:
+	- The author will only test these engines (but you are not limited to)
+		- Single-threaded engine only for this SPRT program
+		- Hash size will be limited to MAX of 256MB (lower is fine)
+		- Engines may NOT ponder
+
+
+
+TERMS USED:
+	<move> is in format of "row number_of_pops" row 1 would be 0, and 2 pops would be 2, so an example move with row 1 and 2 pops would be indicated as "0 2"
+	<position> is in the format of a flattened 1 dimensional 37 element list in the form of a string, the last character of the string is a turn character, which is either 1 for 1st player turn or 2 for second player tuen. An example of the starting position with first player to move would be "0000000000000000000000000000000000001" (without the double quotes), from top to bottom and left to right. If a spot is filled, indicate as 1  in the string
+	<time> is time in milliseconds unless stated otherwise
+	<inc> is also time in milliseconds, but as increment
+	<name> is engine name
+
+
+
+PROGRAM >> Engine:
+
+	"upi" - Informing engine to use upi
+
+	"isready" - Check the readiness of engines
+
+	"position <position>" - The current position, the engine is expected to parse the position on command
+
+	"go time1 <time> time2 <time> inc1 <inc> inc2 <inc>" 
+
+
+
+Engine >> PROGRAM:
+	
+	"id name <name>" - In response to "upi"
+
+	"id author <author>" - In response to "upi"
+
+	"upiok" - In response to "upi" to indicate using upi protocol
+	
+	"readyok" - Checking for readiness, in response to "isready"
+
+	"bestmove <move>" - After the engine searches a position and determines the optimum move
