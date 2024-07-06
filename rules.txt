@@ -14,6 +14,23 @@ Game Steps:
 	NOTE
 	- Can only popped unpopped elements
 	- Can only pop elements on the chosen row
+	- The order in which the pops are popped or the positions (cols) of each pop is disregarded, as it does not change the game state in any way
+	EG:
+		OOXOXO
+		OOOOOO
+		OOOOOO
+		OOOOOO
+		OOOOOO
+		OOOOOO
+
+	is the same as:
+		XXOOOO
+		OOOOOO
+		OOOOOO
+		OOOOOO
+		OOOOOO
+		OOOOOO
+
 - After popping the elements on the chosen row, switch to player 2
 - Repeat until there is one "not-popped" element left
 	NOTE
