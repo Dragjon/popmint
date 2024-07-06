@@ -6,6 +6,7 @@ import os
 import random
 import math
 from dataclasses import dataclass
+from GUI import *
 
 RED = "\033[0;31m"
 GREEN = "\033[0;32m"
@@ -211,7 +212,9 @@ def run_match(engine1_cmd, engine2_cmd, engine1_name, engine2_name, openings_fil
             pgn_moves = []
 
             while True:
+                print_board(board.board)
                 start_time = time.time()
+                wasted_time = time.time() - start_time
                 if board.turn == pt.FIRST:
                     if game_num == 2:
                         current_engine = engine2
@@ -344,6 +347,7 @@ def run_match(engine1_cmd, engine2_cmd, engine1_name, engine2_name, openings_fil
 * Final Results of {engine1_name} vs {engine2_name}
 *****************************************************
 * TC     | {BLUE}{base_time}+{increment}{END}
+* Params | {GREEN}Elo0={elo0}, Elo1={elo1}, Alpha={alpha}, Beta={beta}{END}
 * Games  | {LIGHT_CYAN}{total_games}{END}
 * WDL    | {LIGHT_GREEN}{wdl[0]}{END} | {LIGHT_GRAY}{wdl[1]}{END} | {LIGHT_RED}{wdl[2]}{END}
 * Pntnml | {LIGHT_RED}{pntnml[0]}{END} | {YELLOW}{pntnml[1]}{END} | {LIGHT_GRAY}{pntnml[2]}{END} | {LIGHT_BLUE}{pntnml[3]}{END} | {LIGHT_GREEN}{pntnml[4]}{END}
@@ -363,6 +367,7 @@ def run_match(engine1_cmd, engine2_cmd, engine1_name, engine2_name, openings_fil
 * Partial results of {engine1_name} vs {engine2_name}
 *****************************************************
 * TC     | {BLUE}{base_time}+{increment}{END}
+* Params | {GREEN}Elo0={elo0}, Elo1={elo1}, Alpha={alpha}, Beta={beta}{END}
 * Games  | {LIGHT_CYAN}{total_games}{END}
 * WDL    | {LIGHT_GREEN}{wdl[0]}{END} | {LIGHT_GRAY}{wdl[1]}{END} | {LIGHT_RED}{wdl[2]}{END}
 * Pntnml | {LIGHT_RED}{pntnml[0]}{END} | {YELLOW}{pntnml[1]}{END} | {LIGHT_GRAY}{pntnml[2]}{END} | {LIGHT_BLUE}{pntnml[3]}{END} | {LIGHT_GREEN}{pntnml[4]}{END}
@@ -427,6 +432,7 @@ if __name__ == "__main__":
     parser.add_argument("-rp", "--repeat", action="store_true", help="Repeat rounds with colors switched for the second game")
     parser.add_argument("-db", "--debug", action="store_true", help="Enable debug mode")
     parser.add_argument("-sprt", "--sprt", action="store_true", help="Enable sprt mode")
+    parser.add_argument("-gui", "--gui", action="store_true", help="Enable GUI")
     parser.add_argument("-e0", "--elo0", type=int, default=0, help="True elo < elo0 with alpha = 0.05 means a 0.05 chance of passing")
     parser.add_argument("-e1", "--elo1", type=int, default=5, help="True elo > elo1 with beta = 0.05 means a 0.95 chance of passing")
     parser.add_argument("-a", "--alpha", type=float, default=0.05, help="True elo < elo1 with alphs = 0.05 means a 0.05 chance of passing")
