@@ -1,6 +1,6 @@
 # popmint
  A SPRT tester for Pop-It engines
-# popmint rating list of Pop-It engines (PMRL - Full List)
+# popmint rating list of Pop-It engines (PMRL - Full List STC - 8+0.08)
 | Engine Name        | Author              | Rating              | Games          | Comments from Author        |
 |--------------------|---------------------|---------------------|----------------|-----------------------------|
 | Marburg v0.0.2     | Dragjon             | 1646.47 +/- 46.48   | 844  W: 784    | (O_O)                       |
