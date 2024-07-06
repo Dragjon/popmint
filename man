@@ -1,0 +1,37 @@
+usage: popmint [-h] -engine1 ENGINE1_CMD -name1 ENGINE1_NAME -engine2 ENGINE2_CMD -name2 ENGINE2_NAME
+               [-openings OPENINGS_FILE] [-interval ELO_INTERVAL] -tc TIME_CONTROL [-rd ROUNDS] [-pgn PGN_OUT] [-rp]
+               [-db] [-sprt] [-gui] [-e0 ELO0] [-e1 ELO1] [-a ALPHA] [-b BETA]
+
+Engine match manager for UPI engines using Popitto
+
+options:
+  -h, --help            show this help message and exit
+  -engine1 ENGINE1_CMD, --engine1_cmd ENGINE1_CMD
+                        Engine 1 path
+  -name1 ENGINE1_NAME, --engine1_name ENGINE1_NAME
+                        Name of Engine 1
+  -engine2 ENGINE2_CMD, --engine2_cmd ENGINE2_CMD
+                        Engine 2 path
+  -name2 ENGINE2_NAME, --engine2_name ENGINE2_NAME
+                        Name of Engine 2
+  -openings OPENINGS_FILE, --openings_file OPENINGS_FILE
+                        File containing openings in EPD format
+  -interval ELO_INTERVAL, --elo_interval ELO_INTERVAL
+                        Interval to print elo
+  -tc TIME_CONTROL, --time_control TIME_CONTROL
+                        Time control in format base+increment (e.g., 8+8000 for 8 seconds and 80 milliseconds)
+  -rd ROUNDS, --rounds ROUNDS
+                        Number of rounds to play
+  -pgn PGN_OUT, --pgn_out PGN_OUT
+                        Output PGN file path
+  -rp, --repeat         Repeat rounds with colors switched for the second game
+  -db, --debug          Enable debug mode
+  -sprt, --sprt         Enable sprt mode
+  -gui, --gui           Enable GUI
+  -e0 ELO0, --elo0 ELO0
+                        True elo < elo0 with alpha = 0.05 means a 0.05 chance of passing
+  -e1 ELO1, --elo1 ELO1
+                        True elo > elo1 with beta = 0.05 means a 0.95 chance of passing
+  -a ALPHA, --alpha ALPHA
+                        True elo < elo1 with alphs = 0.05 means a 0.05 chance of passing
+  -b BETA, --beta BETA  True elo > elo1 with beta = 0.05 means a 0.95 chance of passing
